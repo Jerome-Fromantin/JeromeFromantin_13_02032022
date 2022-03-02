@@ -15,6 +15,7 @@ body {
 
 .main {
   flex: 1;
+  padding: 1px;
 }
 
 .bg-dark {
@@ -42,12 +43,12 @@ body {
   padding: 5px 20px;
 }
 
-.main-nav a {
+.main-nav-link {
   font-weight: bold;
   color: #2c3e50;
 }
 
-.main-nav a.router-link-exact-active {
+.main-nav-link.router-link-exact-active {
   color: #42b983;
 }
 
@@ -143,7 +144,7 @@ body {
 
 .feature-item {
   flex: 1;
-  padding: 2.5rem;
+  padding: 2.5rem 2.7rem;
 }
 
 .feature-item-title {
@@ -169,13 +170,12 @@ body {
   box-sizing: border-box;
   background-color: white;
   width: 300px;
-  margin: 0 auto;
-  margin-top: 3rem;
+  margin: 3rem auto;
   padding: 2rem;
 }
 
 .sign-in-icon {
-  font-size: 5rem;
+  font-size: 1rem;
 }
 
 .input-remember {
