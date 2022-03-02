@@ -1,14 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//import '../styles/styles.css'
+import logo from '../img/argentBankLogo.png'
 
 function Header() {
-    return (<div className="header">
-        <span className="nav">
-            <Link to="/" className="link_accueil">Accueil</Link>
-            <Link to="/sign-in" className="link_apropos">Sign in</Link>
-            <Link to="/user" className="link_apropos">User</Link>
-        </span>
+    return (<div>
+        <nav className="main-nav">
+            <Link to="/" className="main-nav-link main-nav-logo">
+                <img
+                className="main-nav-logo-image"
+                src={logo}
+                alt="Argent Bank Logo"
+                />
+                <h1 className="sr-only">Argent Bank</h1>
+            </Link>
+            <div>
+                <Link to="/sign-in" className="main-nav-link main-nav-item">
+                    <i className="fa fa-user-circle"></i>
+                    &nbsp;Sign In
+                </Link>
+            </div>
+        </nav>
     </div>)
 }
 
