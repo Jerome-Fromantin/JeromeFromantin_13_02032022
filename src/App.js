@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path="sign-in" element={<Signin/>}/>
-          <Route path="user/:id" element={<User/>}/>
+          <Route path="login" element={<Signin/>}/>
+          <Route path="profile/:id" element={<User/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 function Signin() {
     return (<div>
         <Helmet>
-            <title>Argent Bank - Sign In Page</title>
+            <title>Argent Bank - Login Page</title>
         </Helmet>
         <main className="main bg-dark">
             <section className="sign-in-content">
@@ -24,7 +24,7 @@ function Signin() {
                         <input type="checkbox" id="remember-me" /><label for="remember-me"
                         >Remember me</label>
                     </div>
-                    <Link to="/user/:id" className="sign-in-button-link">
+                    <Link to="/profile/:id" className="sign-in-button-link">
                         <div className="sign-in-button">Sign In</div>
                     </Link>
                 </form>

@@ -16,14 +16,14 @@ function Header() {
             </Link>
             {!id ? (
                 <div>
-                    <Link to="/sign-in" className="main-nav-link main-nav-item">
+                    <Link to="/login" className="main-nav-link main-nav-item">
                         <i className="fa fa-user-circle"></i>
                         &nbsp;Sign In
                     </Link>
                 </div>
             ) : (
                 <div>
-                    <Link to="/user/:id" className="main-nav-link main-nav-item">
+                    <Link to="/profile/:id" className="main-nav-link main-nav-item">
                         <i class="fa fa-user-circle"></i>
                         &nbsp;Tony
                     </Link>

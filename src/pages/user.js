@@ -5,7 +5,7 @@ import Account from '../composants/Account'
 function User() {
     return (<div>
         <Helmet>
-            <title>Argent Bank - User Page</title>
+            <title>Argent Bank - Profile Page</title>
         </Helmet>
         <main className="main bg-dark">
             <div className="header">
