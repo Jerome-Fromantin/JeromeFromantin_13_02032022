@@ -1,11 +1,12 @@
 import React from 'react'
-import '../css/main.css'
-//import Xxx from '../composants/Xxx'
-
-/* Vérifier si la classe "main" est utilisée ailleurs... */
+import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 function Signin() {
     return (<div>
+        <Helmet>
+            <title>Argent Bank - Sign In Page</title>
+        </Helmet>
         <main className="main bg-dark">
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
@@ -23,11 +24,9 @@ function Signin() {
                         <input type="checkbox" id="remember-me" /><label for="remember-me"
                         >Remember me</label>
                     </div>
-                    {/*<!-- PLACEHOLDER DUE TO STATIC SITE -->
-                    <a href="./user.html" className="sign-in-button">Sign In</a>
-                    <!-- SHOULD BE THE BUTTON BELOW -->
-                    <!-- <button className="sign-in-button">Sign In</button> -->
-                    <!--  -->*/}
+                    <Link to="/user/:id" className="sign-in-button-link">
+                        <div className="sign-in-button">Sign In</div>
+                    </Link>
                 </form>
             </section>
         </main>
