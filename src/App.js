@@ -5,6 +5,7 @@ import Layout from './pages/layout'
 import Home from './pages/home'
 import Signin from './pages/signin'
 import User from './pages/user'
+import Transactions from './pages/transactions'
 
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path="login" element={<Signin/>}/>
           <Route path="profile/:id" element={<User/>}/>
+          <Route path="profile/:id/:edit" element={<User/>}/>
+          <Route path="profile/:id/:transChecking" element={<Transactions/>}/>
+          <Route path="profile/:id/:transSavings" element={<Transactions/>}/>
+          <Route path="profile/:id/:transCreditCard" element={<Transactions/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
