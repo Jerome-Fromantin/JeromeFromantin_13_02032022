@@ -14,25 +14,23 @@ function Header() {
                 />
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
-            {!id ? (
-                <div>
+            <div>
+                {!id ? (
                     <Link to="/login" className="main-nav-link main-nav-item">
                         <i className="fa fa-user-circle"></i>
                         &nbsp;Sign In
                     </Link>
-                </div>
-            ) : (
-                <div>
+                ) : (<div>
                     <Link to="/profile/:id" className="main-nav-link main-nav-item">
-                        <i class="fa fa-user-circle"></i>
+                        <i className="fa fa-user-circle"></i>
                         &nbsp;Tony
                     </Link>
                     <Link to="/" className="main-nav-link main-nav-item">
-                        <i class="fa fa-sign-out"></i>
+                        <i className="fa fa-sign-out"></i>
                         &nbsp;Sign Out
                     </Link>
-                </div>
-            )}
+                </div>)}
+            </div>
         </nav>
     </div>)
 }

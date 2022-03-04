@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Account(props) {
     return (
         <section className="account">
@@ -7,7 +9,9 @@ function Account(props) {
                 <p className="account-amount-description">{props.amountDescr}</p>
             </div>
             <div className="account-content-wrapper cta">
-                <button className="transaction-button">{props.transButton}</button>
+                <Link to={props.linkPath} className="sign-in-button-link">
+                    <button className="transaction-button">{props.transButton}</button>
+                </Link>
             </div>
         </section>
     )
