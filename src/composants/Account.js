@@ -9,7 +9,7 @@ function Account(props) {
                 <p className="account-amount-description">{props.amountDescr}</p>
             </div>
             <div className="account-content-wrapper cta">
-                <Link to={props.linkPath} className="sign-in-button-link">
+                <Link to={props.linkPath} className="account-button-link">
                     <button className="transaction-button">{props.transButton}</button>
                 </Link>
             </div>

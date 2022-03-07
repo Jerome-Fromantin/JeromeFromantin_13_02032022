@@ -13,29 +13,7 @@ body {
   min-height: 100vh;
 }
 
-.main {
-  flex: 1;
-  padding: 1px;
-}
-
-.bg-dark {
-  background-color: #12002b;
-}
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-
+/* COMPOSANT "Header" */
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -52,15 +30,6 @@ body {
   color: #42b983;
 }
 
-.main-nav-item {
-  text-decoration: none;
-  margin-right: 0.5rem;
-}
-
-.main-nav-item:hover {
-  text-decoration: underline;
-}
-
 .main-nav-logo {
   display: flex;
   align-items: center;
@@ -71,6 +40,32 @@ body {
   width: 200px;
 }
 
+/* Cette classe est aussi utilisée dans les pages "home" et "user". */
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+.main-nav-item {
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.main-nav-item:hover {
+  text-decoration: underline;
+}
+/* FIN DU COMPOSANT "Header" */
+
+/* PAGE "home" */
 .hero {
   background-image: url('../img/bank-tree.jpeg');
   background-position: 0 -50px;
@@ -135,6 +130,12 @@ body {
   }
 }
 
+/* Les 3 classes suivantes sont utilisées par le composant "FeatureItem". */
+.feature-item {
+  flex: 1;
+  padding: 2.5rem 2.7rem;
+}
+
 .feature-icon {
   width: 100px;
   border: 10px solid #00bc77;
@@ -142,16 +143,59 @@ body {
   padding: 1rem;
 }
 
-.feature-item {
-  flex: 1;
-  padding: 2.5rem 2.7rem;
-}
-
 .feature-item-title {
   color: #222;
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+/* FIN DE LA PAGE "home". */
+
+/* PAGE "signin" (path "login") */
+/* Les 2 classes suivantes sont aussi utilisées dans la page "user" (path "profile"). */
+.main {
+  flex: 1;
+  padding: 1px;
+}
+
+.bg-dark {
+  background-color: #12002b;
+}
+
+.sign-in-content {
+  box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+.sign-in-icon {
+  font-size: 1rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.input-wrapper label {
+  font-weight: bold;
+}
+
+.input-wrapper input {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.input-remember {
+  display: flex;
+}
+
+.input-remember label {
+  margin-left: 0.25rem;
 }
 
 .sign-in-button-link {
@@ -170,100 +214,12 @@ body {
   color: #fff;
   text-decoration: underline;
 }
+/* FIN DE LA PAGE "signin". */
 
-.sign-in-content {
-  box-sizing: border-box;
-  background-color: white;
-  width: 300px;
-  margin: 3rem auto;
-  padding: 2rem;
-}
-
-.sign-in-icon {
-  font-size: 1rem;
-}
-
-.input-remember {
-  display: flex;
-}
-
-.input-remember label {
-  margin-left: 0.25rem;
-}
-
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.input-wrapper label {
-  font-weight: bold;
-}
-
-.profile-edit {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.input-wrapper input, .profile-edit input {
-  padding: 5px;
-  font-size: 1.2rem;
-}
-
-.user-input {
-  margin: 0 10px;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 2px solid #ccc;
-  padding: 2rem 0 1.5rem;
-}
-
-.footer-text {
-  margin: 0;
-  padding: 0;
-}
-
-.account {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
-  width: 80%;
-  margin: 0 auto;
-  flex-direction: column;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  text-align: left;
+/* PAGE "user" (path "profile") */
+.header {
+  color: #fff;
   margin-bottom: 2rem;
-}
-
-.account-amount {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.account-amount-description {
-  margin: 0;
-}
-
-.account-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-.account-content-wrapper {
-  width: 100%;
-  flex: 1;
 }
 
 .edit-button, .edit-buttons {
@@ -283,9 +239,61 @@ body {
   margin: 0 10px;
 }
 
-.header {
-  color: #fff;
+.profile-edit {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.profile-edit input {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.user-input {
+  margin: 0 10px;
+}
+
+/* Les classes suivantes (jusqu'à "transaction-button") sont utilisées par le composant "Account". */
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
   margin-bottom: 2rem;
+}
+
+.account-content-wrapper {
+  width: 100%;
+  flex: 1;
+}
+
+.account-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.account-amount {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.account-amount-description {
+  margin: 0;
+}
+
+.account-button-link {
+  text-decoration: none;
 }
 
 .transaction-button {
@@ -317,3 +325,57 @@ body {
     width: 200px;
   }
 }
+/* FIN DE LA PAGE "user". */
+
+/* PAGE "transactions" (path "transactions") */
+/* Les 5 classes suivantes sont utilisées par le composant "TransTitle". */
+.titleSection {
+  border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.titleSection-content-wrapper {
+  width: 100%;
+  flex: 1;
+}
+
+.titleSection-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.titleSection-amount {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.titleSection-amount-description {
+  margin: 0;
+}
+
+/* Règle provisoire */
+#transpage {
+  height: 600px;
+  color: white
+}
+
+/* COMPOSANT "Footer" */
+.footer {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ccc;
+  padding: 2rem 0 1.5rem;
+}
+
+.footer-text {
+  margin: 0;
+  padding: 0;
+}
+/* FIN DU COMPOSANT "Footer" */
