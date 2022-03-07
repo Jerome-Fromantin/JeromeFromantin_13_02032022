@@ -17,9 +17,9 @@ function App() {
           <Route path="login" element={<Signin/>}/>
           <Route path="profile/:id" element={<User/>}/>
           <Route path="profile/:id/:edit" element={<User/>}/>
-          <Route path="profile/:id/:transChecking" element={<Transactions/>}/>
-          <Route path="profile/:id/:transSavings" element={<Transactions/>}/>
-          <Route path="profile/:id/:transCreditCard" element={<Transactions/>}/>
+          <Route path="transactions/:id/:checking" element={<Transactions/>}/>
+          <Route path="transactions/:id/:savings" element={<Transactions/>}/>
+          <Route path="transactions/:id/:creditCard" element={<Transactions/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
