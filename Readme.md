@@ -1,10 +1,8 @@
-FICHIER README A AMELIORER ET COMPLETER...
-
 Ce travail est réalisé dans le cadre de la formation "Développeur JavaScript React" (anciennement "Développeur d'applications front-end") d'OpenClassrooms.
 
-Ce projet 13 consiste en ...
+Ce projet 13 consiste en la création d'une application bancaire utilisant React et Redux.
 
-Dernière mise à jour : 04-03-2022 18h25
+Dernière mise à jour : 07-03-2022 18h25
 
 Travail réalisé :
 - Initialisation du projet.
@@ -19,9 +17,13 @@ Travail réalisé :
 - Création de 2 composants utilisés plusieurs fois.
 - Mise en place de 3 pages de l'application.
 - Installation de la librairie React-Helmet-Async pour remplacer React-Helmet qui provoque une erreur en console.
-- Intégration partielle des 2 wireframes.
+- Intégration du 1er wireframe.
+- Intégration partielle du 2ème wireframe.
 - Début de mise en place d'une page "Transactions".
+- Réorganisation du CSS de manière plus claire.
+- Ajout de 4 composants (dont 3 provisoires) pour la page "Transactions".
 
 Travail à faire :
-- Régler le problème de l'accès à la page "Transactions".
+- Régler le problème de l'accès aux différentes versions de la page "Transactions".
+- Régler le problème de l'accès au back-end avec MongoDB.
 - Et d'autres choses...
