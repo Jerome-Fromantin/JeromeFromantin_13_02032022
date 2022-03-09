@@ -1,8 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import axios from 'axios'
 
 function Signin() {
+    async function test() {
+        const response = await axios.post("http://localhost:3001/api/v1/user/login", {
+            "email": "tony@stark.com",
+            "password": "password123"
+          })
+          console.log(response)
+          console.log(response.data.body.token)
+          localStorage.setItem('token_login', response.data.body.token);
+    }
+    test()
     return (
         <HelmetProvider>
             <Helmet>
