@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { getToken1, getToken2, getName, getPass } from '../redux/store'
+import { getUsername, getPassword } from '../redux/store'
 
 function Signin() {
     const [username, setUsername] = useState("")
@@ -20,21 +20,19 @@ function Signin() {
     }, [password])
 
     // Fonction utilisée au remplissage du 1er input.
-    function handleName(event) {
+    function handleUsername(event) {
         setUsername({username : event.target.value})
-        let name = event.target.value
-        localStorage.setItem('username', name)
-        dispatch(getToken1())
-        dispatch(getName())
+        let username = event.target.value
+        localStorage.setItem('username', username)
+        dispatch(getUsername())
     }
 
     // Fonction utilisée au remplissage du 2ème input.
-    function handlePass(event) {
+    function handlePassword(event) {
         setPassword({password : event.target.value})
-        let pass = event.target.value
-        localStorage.setItem('password', pass)
-        dispatch(getToken2())
-        dispatch(getPass())
+        let password = event.target.value
+        localStorage.setItem('password', password)
+        dispatch(getPassword())
     }
 
     //console.log(username)
@@ -49,7 +47,7 @@ function Signin() {
 
     const dispatch = useDispatch()
 
-    async function getDBData() {
+    async function getLoginData() {
         const response1 = await axios.post("http://localhost:3001/api/v1/user/login", {
             "email": "tony@stark.com",
             "password": "password123"
@@ -58,8 +56,7 @@ function Signin() {
         // Ci-dessus affiche le token extrait de la réponse, renouvelé à chaque frappe quel que soit le champ.
         //console.log(response1.config.data)
         // Ci-dessus affiche : {"email":"tony@stark.com","password":"password123"}
-        localStorage.setItem('token_login1', response1.data.body.token)
-        localStorage.setItem('name_pass1', response1.config.data)
+        localStorage.setItem('response_login_token1', response1.data.body.token)
 
         const response2 = await axios.post("http://localhost:3001/api/v1/user/login", {
             "email": "steve@rogers.com",
@@ -69,10 +66,9 @@ function Signin() {
         // Ci-dessus affiche le token extrait de la réponse, renouvelé à chaque frappe quel que soit le champ.
         //console.log(response2.config.data)
         // Ci-dessus affiche : {"email":"steve@rogers.com","password":"password456"}
-        localStorage.setItem('token_login2', response2.data.body.token)
-        localStorage.setItem('name_pass2', response2.config.data)
+        localStorage.setItem('response_login_token2', response2.data.body.token)
     }
-    getDBData()
+    getLoginData()
 
     return (
         <HelmetProvider>
@@ -86,15 +82,11 @@ function Signin() {
                     <form>
                         <div className="input-wrapper">
                             <label htmlFor="username">Username</label>
-                            <input type="text" id="username" onChange={handleName}/>
-                            {/*<input type="text" id="username" value={username}
-                            onChange={(e) => setUsername(e.target.value)}/>*/}
+                            <input type="text" id="username" onChange={handleUsername}/>
                         </div>
                         <div className="input-wrapper">
                             <label htmlFor="password">Password</label>
-                            <input type="password" id="password" onChange={handlePass}/>
-                            {/*<input type="password" id="password" value={password}
-                            onChange={(e) => setPassword(e.target.value)}/>*/}
+                            <input type="password" id="password" onChange={handlePassword}/>
                         </div>
                         <div className="input-remember">
                             <input type="checkbox" id="remember-me" /><label htmlFor="remember-me"

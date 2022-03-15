@@ -8,26 +8,16 @@ const initialState = {
 }
 
 // Action creators
-export const getToken1 = () => ({type: "getToken1"})
-export const getToken2 = () => ({type: "getToken2"})
-export const getName = () => ({type: "getName"})
-export const getPass = () => ({type: "getPass"})
+export const getUsername = () => ({type: "getUsername"})
+export const getPassword = () => ({type: "getPassword"})
 
 // Reducer
 function reducer(state = initialState, action) {
-    if (action.type === "getToken1") {
-        localStorage.getItem('token_login1')
-    }
-    
-    if (action.type === "getToken2") {
-        localStorage.getItem('token_login2')
-    }
-
-    if (action.type === "getName") {
+    if (action.type === "getUsername") {
         localStorage.getItem('username')
     }
 
-    if (action.type === "getPass") {
+    if (action.type === "getPassword") {
         localStorage.getItem('password')
         /*return produce(state, draft => {
             draft.password = action.payload
