@@ -1,9 +1,31 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteToken, saveProfile } from '../redux/store'
+import { getProfile } from '../services/services'
 import logo from '../img/argentBankLogo.png'
 
 function Header() {
-    const { id } = useParams()
+    const token = useSelector((state) => state.token)
+    console.log(token)
+    const profileData = useSelector((state) => state.profile)
+    console.log(profileData)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        async function getUserProfile() {
+            const response = await getProfile()
+            const profileData = response.data.body
+            dispatch(saveProfile(profileData))
+        }
+        if (token) getUserProfile()
+    }, [dispatch, token])
+
+    function signOut() {
+        dispatch(deleteToken())
+    }
+
     return (<div>
         <nav className="main-nav">
             <Link to="/" className="main-nav-link main-nav-logo">
@@ -15,17 +37,17 @@ function Header() {
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
-                {!id ? (
+                {!token ? (
                     <Link to="/login" className="main-nav-link main-nav-item">
                         <i className="fa fa-user-circle"></i>
                         &nbsp;Sign In
                     </Link>
                 ) : (<div>
-                    <Link to="/profile/:id" className="main-nav-link main-nav-item">
+                    <Link to="/profile" className="main-nav-link main-nav-item">
                         <i className="fa fa-user-circle"></i>
-                        &nbsp;Tony
+                        &nbsp;{profileData.firstName}
                     </Link>
-                    <Link to="/" className="main-nav-link main-nav-item">
+                    <Link to="/" className="main-nav-link main-nav-item" onClick={signOut}>
                         <i className="fa fa-sign-out"></i>
                         &nbsp;Sign Out
                     </Link>

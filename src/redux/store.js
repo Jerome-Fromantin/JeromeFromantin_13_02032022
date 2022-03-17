@@ -1,27 +1,39 @@
 import { createStore } from "redux"
-//import { produce } from "immer"
+import { produce } from "immer"
 
 // State initial
 const initialState = {
     username: "",
-    password: ""
+    password: "",
+    token: localStorage.getItem('token'),
+    profile: {}
 }
 
 // Action creators
-export const getUsername = () => ({type: "getUsername"})
-export const getPassword = () => ({type: "getPassword"})
+export const saveToken = (token) => ({type: "saveToken", payload: token})
+export const deleteToken = () => ({type: "deleteToken"})
+export const saveProfile = (profile) => ({type: "saveProfile", payload: profile})
 
 // Reducer
 function reducer(state = initialState, action) {
-    if (action.type === "getUsername") {
-        localStorage.getItem('username')
+    if (action.type === "saveToken") {
+        localStorage.setItem('token', action.payload)
+        return produce(state, draft => {
+            draft.token = action.payload
+        })
     }
-
-    if (action.type === "getPassword") {
-        localStorage.getItem('password')
-        /*return produce(state, draft => {
-            draft.password = action.payload
-        })*/
+    
+    if (action.type === "deleteToken") {
+        localStorage.removeItem('token')
+        return produce(state, draft => {
+            draft.token = ""
+        })
+    }
+    
+    if (action.type === "saveProfile") {
+        return produce(state, draft => {
+            draft.profile = action.payload
+        })
     }
 
     // Sinon on retourne le state initial.
@@ -31,9 +43,8 @@ function reducer(state = initialState, action) {
 // Rassemble les données en un state qu'il garde dans le localStorage.
 function saveToLocalStorage(state) {
     try {
-        localStorage.getItem('username')
-        localStorage.getItem('password')
-        state = '{username: "' + localStorage.username + '", password: "' + localStorage.password + '"}'
+        localStorage.getItem('token')
+        state = 'token: "' + localStorage.token + '"'
         localStorage.setItem('persistedState', state)
     }
     catch(e) {

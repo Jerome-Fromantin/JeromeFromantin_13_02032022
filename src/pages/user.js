@@ -1,55 +1,52 @@
-import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveProfile } from '../redux/store'
+import { updateProfile } from '../services/services'
 import Account from '../composants/Account'
 //import { store } from '../redux/store'
 
 function User() {
-    const { edit } = useParams()
-    const userFirstName = ""
-    const userLastName = ""
-    console.log(userFirstName)
-    console.log(userLastName)
-    const [firstName, setFirstName] = useState(userFirstName)
-    const [lastName, setLastName] = useState(userLastName)
+    const [edit, setEdit] = useState(false)
+    const profileData = useSelector((state) => state.profile)
+    console.log(profileData)
+    //const { edit } = useParams()
+    //const userFirstName = ""
+    //const userLastName = ""
+    //console.log(userFirstName)
+    //console.log(userLastName)
+    const [firstName, setFirstName] = useState("") //(userFirstName)
+    const [lastName, setLastName] = useState("") //(userLastName)
+
+    const dispatch = useDispatch()
+
+    //useEffect(() => {
+        /*async function getUpdatedProfile() {
+            const response = await updateProfile(firstName, lastName)
+            const updatedProfile = response.data.body
+            console.log(updatedProfile)
+            dispatch(saveProfile(updatedProfile))
+        }*/
+    //}, [dispatch])
 
     // Fonction utilisée pour enregistrer le nom modifié.
     function saveData() {
-        const userFirstName = document.getElementById('user_first_name')
-        const userLastName = document.getElementById('user_last_name')
-        setFirstName(userFirstName.value)
-        setLastName(userLastName.value)
+        const editFirstName = document.getElementById('user_first_name')
+        const editLastName = document.getElementById('user_last_name')
+        console.log(editFirstName.value)
+        console.log(editLastName.value)
+        setFirstName(editFirstName.value)
+        setLastName(editLastName.value)
+        console.log(firstName)
+        console.log(lastName)
+        //getUpdatedProfile()
+        setEdit(false)
     }
 
     // Fonction utilisée pour annuler le nom modifié.
     function cancelData() {
-        setFirstName("")
-        setLastName("")
+        setEdit(false)
     }
-
-    async function getProfileData() {
-        const response1 = await axios.post("http://localhost:3001/api/v1/user/profile", {}, {
-            headers: {"Authorization": "Authorization Bearer " + localStorage.getItem('response_login_token1')}
-        })
-        console.log(response1.data.body.firstName)
-        // Ci-dessus affiche : Tony
-        console.log(response1.data.body.lastName)
-        // Ci-dessus affiche : Stark
-        localStorage.setItem('firstName1', response1.data.body.firstName)
-        localStorage.setItem('lastName1', response1.data.body.lastName)
-
-        const response2 = await axios.post("http://localhost:3001/api/v1/user/profile", {}, {
-            headers: {"Authorization": "Authorization Bearer " + localStorage.getItem('response_login_token2')}
-        })
-        console.log(response2.data.body.firstName)
-        // Ci-dessus affiche : Steve
-        console.log(response2.data.body.lastName)
-        // Ci-dessus affiche : Rogers
-        localStorage.setItem('firstName2', response2.data.body.firstName)
-        localStorage.setItem('lastName2', response2.data.body.lastName)
-    }
-    getProfileData()
 
     return (
         <HelmetProvider>
@@ -59,17 +56,17 @@ function User() {
             <main className="main bg-dark">
                 {!edit ? (
                     <div className="header">
-                        <h1>Welcome back<br />{firstName} {lastName}!</h1>
-                        <Link to="/profile/:id/:edit">
-                            <button className="edit-button">Edit Name</button>
-                        </Link>
+                        <h1>Welcome back<br />{profileData.firstName} {profileData.lastName}!</h1>
+                        <button className="edit-button" onClick={() => setEdit(true)}>Edit Name</button>
                     </div>
                 ) : (
                     <div className="header">
                         <h1>Welcome back</h1>
                         <div className="profile-edit">
-                            <input type="text" id="user_first_name" className="user-input" placeholder={firstName}/>
-                            <input type="text" id="user_last_name" className="user-input" placeholder={lastName}/>
+                            <input type="text" id="user_first_name" className="user-input"
+                            placeholder={profileData.firstName}/>
+                            <input type="text" id="user_last_name" className="user-input"
+                            placeholder={profileData.lastName}/>
                         </div>
                         <div className="profile-edit">
                             <button className="edit-buttons" onClick={saveData}>Save</button>
