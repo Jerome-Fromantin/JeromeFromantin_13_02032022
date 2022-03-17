@@ -200,20 +200,19 @@ et dans la page "transactions" (path "transactions"). */
 }
 
 .sign-in-button-link {
-  text-decoration: none;
+  cursor: pointer;
+  background-color: #00bc77;
+  border: 1px #00bc77 solid;
+  margin-top: 1rem;
 }
 
 .sign-in-button {
   display: block;
-  width: 100%;
-  padding: 8px;
+  color: #fff;
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
   text-decoration: underline;
+  padding: 8px;
 }
 /* FIN DE LA PAGE "signin". */
 
