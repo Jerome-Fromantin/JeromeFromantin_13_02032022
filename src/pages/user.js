@@ -1,49 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveProfile } from '../redux/store'
 import { updateProfile } from '../services/services'
 import Account from '../composants/Account'
-//import { store } from '../redux/store'
 
 function User() {
     const [edit, setEdit] = useState(false)
     const profileData = useSelector((state) => state.profile)
-    console.log(profileData)
-    //const { edit } = useParams()
-    //const userFirstName = ""
-    //const userLastName = ""
-    //console.log(userFirstName)
-    //console.log(userLastName)
-    const [firstName, setFirstName] = useState("") //(userFirstName)
-    const [lastName, setLastName] = useState("") //(userLastName)
 
     const dispatch = useDispatch()
 
-    //useEffect(() => {
-        /*async function getUpdatedProfile() {
-            const response = await updateProfile(firstName, lastName)
-            const updatedProfile = response.data.body
-            console.log(updatedProfile)
-            dispatch(saveProfile(updatedProfile))
-        }*/
-    //}, [dispatch])
-
     // Fonction utilisée pour enregistrer le nom modifié.
-    function saveData() {
+    async function saveData() {
         const editFirstName = document.getElementById('user_first_name')
         const editLastName = document.getElementById('user_last_name')
-        console.log(editFirstName.value)
-        console.log(editLastName.value)
-        setFirstName(editFirstName.value)
-        setLastName(editLastName.value)
-        console.log(firstName)
-        console.log(lastName)
-        //getUpdatedProfile()
+        const response = await updateProfile(editFirstName.value, editLastName.value)
+        const updatedProfile = response.data.body
+        dispatch(saveProfile(updatedProfile))
         setEdit(false)
     }
 
-    // Fonction utilisée pour annuler le nom modifié.
+    // Fonction utilisée pour annuler la modification en cours.
     function cancelData() {
         setEdit(false)
     }
