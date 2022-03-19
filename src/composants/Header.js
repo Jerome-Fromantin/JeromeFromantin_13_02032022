@@ -7,9 +7,7 @@ import logo from '../img/argentBankLogo.png'
 
 function Header() {
     const token = useSelector((state) => state.token)
-    console.log(token)
     const profileData = useSelector((state) => state.profile)
-    console.log(profileData)
 
     const dispatch = useDispatch()
 

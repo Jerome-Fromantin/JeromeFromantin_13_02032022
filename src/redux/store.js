@@ -3,8 +3,6 @@ import { produce } from "immer"
 
 // State initial
 const initialState = {
-    username: "",
-    password: "",
     token: localStorage.getItem('token'),
     profile: {}
 }

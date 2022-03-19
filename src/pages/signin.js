@@ -6,11 +6,11 @@ import { saveToken } from '../redux/store'
 import { getLogin } from '../services/services'
 
 function Signin() {
-    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
-    //console.log(username)
+    //console.log(email)
     // Ci-dessus affiche au départ : <empty string>
     // Ajout d'un "f", affiche : f
     // Retrait du "f", affiche : <empty string>
@@ -25,7 +25,7 @@ function Signin() {
     async function authentication(event) {
         event.preventDefault()
         try {
-            const response = await getLogin(username, password)
+            const response = await getLogin(email, password)
             const token = response.data.body.token
             dispatch(saveToken(token))
             navigate("/profile")
@@ -45,9 +45,9 @@ function Signin() {
                     <h1>Sign In</h1>
                     <form onSubmit={authentication}>
                         <div className="input-wrapper">
-                            <label htmlFor="username">Username</label>
-                            <input type="text" id="username" value={username} onChange={(e) => {
-                                setUsername(e.target.value)
+                            <label htmlFor="email">Username</label>
+                            <input type="text" id="email" value={email} onChange={(e) => {
+                                setEmail(e.target.value)
                             }}/>
                         </div>
                         <div className="input-wrapper">
