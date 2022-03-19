@@ -25,10 +25,9 @@ Travail réalisé :
 - Mise en place de l'accès au back-end.
 - Mise en place du store de Redux et utilisation dans "signin.js".
 - Finition de la page "Transactions".
-- Mise en place des requêtes API de "login" et de "profile" (à améliorer).
-- Mise en place de la connexion avec les données back-end (à améliorer).
+- Mise en place des requêtes API de "login" et de "profile".
+- Mise en place de la connexion avec les données back-end.
 
 Travail à faire :
-- Terminer les requêtes pour l'accès à certaines données.
-- Terminer la fonction de modification du "profile".
+- Eventuellement, ajout de messages d'erreur pour le formulaire de connexion.
 - Et d'autres choses...
