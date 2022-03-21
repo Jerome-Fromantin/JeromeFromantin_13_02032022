@@ -2,7 +2,7 @@ Ce travail est réalisé dans le cadre de la formation "Développeur JavaScript 
 
 Ce projet 13 consiste en la création d'une application bancaire utilisant React et Redux.
 
-Dernière mise à jour : 17-03-2022 18h55
+Dernière mise à jour : 21-03-2022 08h45
 
 Travail réalisé :
 - Initialisation du projet.
@@ -27,7 +27,8 @@ Travail réalisé :
 - Finition de la page "Transactions".
 - Mise en place des requêtes API de "login" et de "profile".
 - Mise en place de la connexion avec les données back-end.
+- Ajout de messages d'erreur pour le formulaire de connexion.
 
 Travail à faire :
-- Eventuellement, ajout de messages d'erreur pour le formulaire de connexion.
-- Et d'autres choses...
+- Création d'un fichier YAML selon Swagger indiquant les endpoints supplémentaires de l'API.
+- Et d'autres choses ?
