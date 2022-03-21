@@ -54,11 +54,11 @@ function User() {
                 )}
                 <h2 className="sr-only">Accounts</h2>
                 <Account title="Argent Bank Checking (x8349)" amount="$2,082.79" amountDescr="Available Balance"
-                linkPath="/transactions/:id" transButton="View transactions"/>
+                linkPath="/transactions" transButton="View transactions"/>
                 <Account title="Argent Bank Savings (x6712)" amount="$10,928.42" amountDescr="Available Balance"
-                linkPath="/transactions/:id" transButton="View transactions"/>
+                linkPath="/transactions" transButton="View transactions"/>
                 <Account title="Argent Bank Credit Card (x8349)" amount="$184.30" amountDescr="Current Balance"
-                linkPath="/transactions/:id" transButton="View transactions"/>
+                linkPath="/transactions" transButton="View transactions"/>
             </main>
         </HelmetProvider>
     )
