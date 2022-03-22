@@ -38,37 +38,5 @@ function reducer(state = initialState, action) {
     return state
 }
 
-// Rassemble les données en un state qu'il garde dans le localStorage.
-function saveToLocalStorage(state) {
-    try {
-        localStorage.getItem('token')
-        state = 'token: "' + localStorage.token + '"'
-        localStorage.setItem('persistedState', state)
-    }
-    catch(e) {
-        console.warn(e)
-    }
-    
-}
-
-// Charge la chaîne du localStorage et la convertit en objet. Si invalide, c'est dit "undefined".
-function loadFromLocalStorage() {
-    try {
-        const serialisedState = localStorage.getItem('persistedState')
-        if (serialisedState === null) return undefined
-        return JSON.parse(serialisedState)
-    }
-    catch(e) {
-        console.warn(e)
-        return undefined
-    }
-}
-
 // Store.
-export const store = createStore(reducer, loadFromLocalStorage())
-
-store.subscribe(() => {
-    saveToLocalStorage(store.getState())
-    const result = localStorage.getItem('persistedState')
-    console.log(result)
-})
+export const store = createStore(reducer, initialState)
