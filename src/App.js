@@ -5,6 +5,8 @@ import Home from './pages/home'
 import Signin from './pages/signin'
 import User from './pages/user'
 import Transactions from './pages/transactions'
+import LoggedIn from './LoggedIn'
+import NotLoggedIn from './NotLoggedIn'
 import './App.css'
 
 
@@ -14,10 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path="login" element={<Signin/>}/>
-          <Route path="profile" element={<User/>}/>
-          <Route path="profile/edit" element={<User/>}/>
-          <Route path="transactions" element={<Transactions/>}/>
+          <Route path="login" element={<NotLoggedIn><Signin/></NotLoggedIn>}/>
+          <Route path="profile" element={<LoggedIn><User/></LoggedIn>}/>
+          <Route path="transactions" element={<LoggedIn><Transactions/></LoggedIn>}/>
         </Route>
       </Routes>
     </BrowserRouter>
