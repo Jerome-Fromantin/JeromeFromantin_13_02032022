@@ -30,7 +30,9 @@ function Signin() {
             dispatch(saveToken(token))
             navigate("/profile")
         } catch (error) {
-            alert(error.response.data.message)
+            alert("Nom d'utilisateur ou mot de passe incorrect.")
+            // Ci-dessous affiche le message d'erreur de la réponse à la requête.
+            //alert(error.response.data.message)
         }
     }
 
