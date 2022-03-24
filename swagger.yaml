@@ -117,7 +117,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - User Module
+        - Transactions Module
       summary: User Transactions API
       description: API for adding a user's transaction
       parameters:
@@ -147,7 +147,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - User Module
+        - Transactions Module
       summary: User Transactions API
       description: API for fetching a user's all transactions
       parameters:
@@ -172,7 +172,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - User Module
+        - Transactions Module
       summary: User Transactions API
       description: API for fetching a user's single transaction
       parameters:
@@ -200,7 +200,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - User Module
+        - Transactions Module
       summary: User Transactions API
       description: API for updating a user's transaction
       parameters:
@@ -234,7 +234,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - User Module
+        - Transactions Module
       summary: User Transactions API
       description: API for deleting a user's transaction
       parameters:
